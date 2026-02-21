@@ -1,0 +1,13 @@
+# ML Artifacts & Data
+data/
+src/*.onnx
+src/*.pkl
+src/*.pth
+
+# Build & OS Directories
+rpmbuild/
+*.rpm
+__pycache__/
+*.pyc
+.env
+.DS_Store

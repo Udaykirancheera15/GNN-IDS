@@ -1,0 +1,32 @@
+[Unit]
+Description=GNN Network Intrusion Detection System
+Documentation=file:///opt/gnn-ids/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStartPre=/usr/bin/python3 -c "import onnxruntime; print('ONNX Runtime OK')"
+ExecStart=/usr/bin/gnn-ids \
+    --model     /opt/gnn-ids/model.onnx \
+    --extractor /opt/gnn-ids/feature_extractor.pkl \
+    --filter    "ip"
+EnvironmentFile=-/etc/gnn-ids/gnn-ids.conf
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=gnn-ids
+
+# Security hardening
+NoNewPrivileges=no
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/log/gnn-ids
+CapabilityBoundingSet=CAP_NET_RAW CAP_NET_ADMIN
+AmbientCapabilities=CAP_NET_RAW CAP_NET_ADMIN
+
+[Install]
+WantedBy=multi-user.target
