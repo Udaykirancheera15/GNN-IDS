@@ -1,8 +1,3 @@
-Here is a complete, professional, FAANG-level `README.md` for your repository. It highlights the rigorous engineering of the MLOps pipeline, the mathematical alignments of the GNN, and the production-grade system integrations.
-
----
-
-```markdown
 # GNN-IDS: Real-Time Graph Neural Network Intrusion Detection System
 
 ![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
