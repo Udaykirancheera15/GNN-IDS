@@ -129,7 +129,3 @@ While the deployment pipeline is production-ready, this architecture is a protot
 ## 📄 License
 
 MIT License. All rights reserved.
-
-```
-
-```
